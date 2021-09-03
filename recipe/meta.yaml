@@ -1,5 +1,5 @@
 {% set name = "tramway" %}
-{% set version = "0.6.2" %}
+{% set version = "0.6.3" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/DecBayComp/TRamWAy/archive/v{{ version }}.tar.gz
-  sha256: 04bddb69dd149a5f34fdc46d56a546ce86ca4714959edc0e745d4ba25fdf7fd7
+  sha256: e3e6fff769288f9c683097721c7634be3cb025b38c19f300dfb981cff5b37758
 
 build:
   skip: true  # [py<36]
