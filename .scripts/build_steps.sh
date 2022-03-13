@@ -26,8 +26,7 @@ cat >~/.condarc <<CONDARC
 conda-build:
  root-dir: ${FEEDSTOCK_ROOT}/build_artifacts
 
-GET_BOA=boa
-BUILD_CMD=mambabuild
+CONDARC
 
 
 mamba install --update-specs --yes --quiet --channel conda-forge \
