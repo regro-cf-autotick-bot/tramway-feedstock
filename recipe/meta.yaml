@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/DecBayComp/TRamWAy/archive/v{{ version }}.tar.gz
-  sha256: 1aca9af22edb48a648281a32da73aed3374fc638558d0e3b53e772b95065ab59
+  url: https://github.com/DecBayComp/TRamWAy/archive/v{{ version }}-1.tar.gz
+  sha256: b85d7c01728b16a857ce6234eadf618d1bd954774a2440c4fe2963cce13d1ec5
 
 build:
   skip: true  # [py<36]
