@@ -1,19 +1,18 @@
 {% set name = "tramway" %}
-{% set version = "0.6.4" %}
+{% set version = "0.6.6" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://github.com/DecBayComp/TRamWAy/archive/v{{ version }}-1.tar.gz
-  sha256: b85d7c01728b16a857ce6234eadf618d1bd954774a2440c4fe2963cce13d1ec5
+  url: https://github.com/DecBayComp/TRamWAy/archive/v{{ version }}.tar.gz
+  sha256: 4c7aed80557ffd5c060bcb2c45ba197bad5ea633e9f3fc40ca7b6e92adb527c6
 
 build:
-  skip: true  # [py<36]
-  number: 2
-  # remove polytope as soon as the package is available in some conda channel, if it ever is
-  script: {{ PYTHON }} -m pip install --no-deps . -vv
+  skip: true  # [py<38 or py>310 or win]
+  number: 0
+  script: rm -f pyproject.toml; {{ PYTHON }} -m pip install --no-deps .
 
 requirements:
   host:
@@ -23,7 +22,7 @@ requirements:
     - setuptools
     - hdf5
     - python
-    - rwa-python
+    - rwa-python =0.9.3
     - matplotlib-base
     - cvxopt
     - polytope
