@@ -10,7 +10,7 @@ source:
   sha256: e266870f1ceb341ecfdf42a4f30befedb47ac71668dc91710acab2d190b850f9
 
 build:
-  skip: true  # [py<38 or py>310 or win]
+  skip: true  # [py<38]
   number: 0
   script: rm -f pyproject.toml; {{ PYTHON }} -m pip install --no-deps .
 
