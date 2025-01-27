@@ -13,7 +13,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install --no-deps .
+  script: rm -f pyproject.toml; {{ PYTHON }} -m pip install --no-deps .
 
 requirements:
   host:
@@ -29,7 +29,6 @@ requirements:
     - polytope
     - tqdm
     - scikit-image
-    - stopit  # [not win]
 
 test:
   imports:
