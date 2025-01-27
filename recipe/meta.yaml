@@ -1,5 +1,6 @@
 {% set name = "tramway" %}
 {% set version = "0.6.9" %}
+{% set python_min = "3.8" %}
 
 package:
   name: {{ name }}
@@ -10,26 +11,24 @@ source:
   sha256: 420bacf86c55ad740e3d0348092e064c7797bbde749ac00ddc99a910131060a8
 
 build:
-  skip: true  # [py<38]
+  noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install --no-deps .
 
 requirements:
   host:
     - pip
-    - poetry
-    - python
-  run:
+    - python {{ python_min }}
     - setuptools
+  run:
     - hdf5
-    - python
-    - rwa-python =0.9.3
+    - python >={{ python_min }}
+    - rwa-python =0.9.5
     - matplotlib-base
     - cvxopt
     - polytope
     - tqdm
     - scikit-image
-    - stopit  # [not win]
+    - setuptools
 
 test:
   imports:
@@ -40,6 +39,7 @@ test:
     - tests/test_analyzer_pipeline.py
   requires:
     - pytest
+    - python {{ python_min }}
   commands:
     - pytest tests/test_core.py tests/test_analyzer.py::TestSptDataAccess tests/test_analyzer.py::TestTesseller tests/test_analyzer.py::TestIndexer tests/test_analyzer.py::TestAssignment tests/test_analyzer.py::TestSideEffects
 
@@ -53,4 +53,5 @@ about:
 
 extra:
   recipe-maintainers:
+    - francoislaurent
     - DecBayComp
