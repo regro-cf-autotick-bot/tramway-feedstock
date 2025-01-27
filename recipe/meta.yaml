@@ -29,6 +29,7 @@ requirements:
     - polytope
     - tqdm
     - scikit-image
+    - setuptools
 
 test:
   imports:
